@@ -55,5 +55,24 @@ const sayHi = wrapperator(function(fn) {
 });
 ```
 
+Or you can just use wrapperator to use your normal wrapper functions as
+decorators at the decoration point:
+
+```javascript
+import decorate from 'wrapperator';
+
+function sayHi(fn) {
+  return function wrapper(...args) {
+    console.log('hi');
+    return fn.apply(this, ...args);
+  };
+}
+
+class K {
+  @decorate(sayHi)
+  f() { console.log('f!'); }
+}
+```
+
 
 [1]: https://github.com/wycats/javascript-decorators
