@@ -37,3 +37,38 @@ it('returns a decorator', function() {
   assert(wrappedCalled);
   assert.equal(inst.f.callCount, 1);
 });
+
+it('decorates each instance separately', function() {
+  function Klass() {}
+  var descriptor = {
+    value: function() { wrappedCalled = true; },
+    enumerable: false,
+    writable: true,
+    configurable: true
+  };
+  Object.defineProperty(Klass.prototype, 'f', countCalls(Klass.prototype, 'f', descriptor) || descriptor);
+
+  var inst = new Klass();
+  inst.f();
+  assert.equal(inst.f.callCount, 1);
+
+  var inst2 = new Klass();
+  inst2.f();
+  assert.equal(inst2.f.callCount, 1);
+});
+
+it("doesn't re-wrap the same instance method more than once", function() {
+  function Klass() {}
+  var descriptor = {
+    value: function() { wrappedCalled = true; },
+    enumerable: false,
+    writable: true,
+    configurable: true
+  };
+  Object.defineProperty(Klass.prototype, 'f', countCalls(Klass.prototype, 'f', descriptor) || descriptor);
+
+  var inst = new Klass();
+  inst.f();
+  inst.f();
+  assert.equal(inst.f.callCount, 2);
+});
