@@ -1,0 +1,28 @@
+{
+  "name": "wrapperator",
+  "version": "0.0.1",
+  "description": "Create a function that can be used as a wrapper or method decorator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:matthewwithanm/wrapperator.js.git"
+  },
+  "keywords": [
+    "decorator",
+    "wrapper",
+    "functional"
+  ],
+  "author": "Matthew Dapena-Tretter <m@tthewwithanm.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthewwithanm/wrapperator.js/issues"
+  },
+  "homepage": "https://github.com/matthewwithanm/wrapperator.js",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
+}
