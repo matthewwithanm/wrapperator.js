@@ -53,6 +53,7 @@ const sayHi = wrapperator(function(fn) {
     return fn.apply(this, ...args);
   };
 });
+```
 
 
 [1]: https://github.com/wycats/javascript-decorators
