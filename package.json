@@ -1,6 +1,6 @@
 {
   "name": "wrapperator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create a function that can be used as a wrapper or method decorator",
   "main": "index.js",
   "scripts": {
