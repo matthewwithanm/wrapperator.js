@@ -16,7 +16,7 @@ Create a function that wraps another, like normal:
 
 ```javascript
 function sayHi(fn) {
-  return function wrapped(...args) {
+  return function wrapper(...args) {
     console.log('hi');
     return fn.apply(this, ...args);
   };
@@ -48,7 +48,7 @@ You can also use function expressions to create wrapperators in one step:
 
 ```javascript
 const sayHi = wrapperator(function(fn) {
-  return function wrapped(...args) {
+  return function wrapper(...args) {
     console.log('hi');
     return fn.apply(this, ...args);
   };
